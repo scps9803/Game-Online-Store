@@ -22,19 +22,17 @@ switch($op){
         header("Location: index.php");
         break;
 }
-//顯示購買紀錄
-//$sql = "SELECT * FROM transactions NATURAL JOIN transaction_detail NATURAL JOIN product
-//    WHERE transMid='{$_SESSION["user_id"]}'";
-//$res = $conn->query($sql);
-//
-//$i=0;
-//$trans_record = NULL;
-//while($record=$res->fetch_assoc()){    
-//    $trans_record[$i] = $record;
-//    $i++;
-//}
+$sql = "SELECT * FROM product";
+$res = $conn->query($sql);
+
+$i = 0;
+while($goods = $res->fetch_assoc()){
+    $all_goods[$i] = $goods;
+    $i++;
+}
 
 
 $smarty->assign("welcome",$welcome);
+$smarty->assign("all_goods",$all_goods);
 $smarty->display("store.html");
 ?>

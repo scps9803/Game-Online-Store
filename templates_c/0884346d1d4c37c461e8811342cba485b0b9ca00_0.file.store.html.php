@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-28 09:24:02
+/* Smarty version 3.1.33, created on 2018-12-29 17:30:48
   from 'C:\wamp64\www\web\templates\store.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c257b328e84f7_31278954',
+  'unifunc' => 'content_5c273ec821ea47_35371915',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0884346d1d4c37c461e8811342cba485b0b9ca00' => 
     array (
       0 => 'C:\\wamp64\\www\\web\\templates\\store.html',
-      1 => 1545960240,
+      1 => 1546075846,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c257b328e84f7_31278954 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c273ec821ea47_35371915 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +103,7 @@ function content_5c257b328e84f7_31278954 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav">
-                <h4>John's Blog</h4>
+                <h4>商品分類</h4>
 
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#">所有</a></li>
@@ -127,30 +127,41 @@ function content_5c257b328e84f7_31278954 (Smarty_Internal_Template $_smarty_tpl)
 
             <div class="col-sm-9">
                 <div class="row">
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_goods']->value, 'goods');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['goods']->value) {
+?>
                     <div class="col-sm-4">
                         <div class="panel panel-success">
-                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                            <div class="panel-heading text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['category'];?>
+</div>
+                            <!-- <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div> -->
                             <div class="panel-body">
-                                <a href="account.html"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                                <a href="item_detail.php?pNo=<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
+"><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
+" class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
                             </div>
-                            <div class="panel-footer" style="text-align: center;">遊戲寶物2</div>
+                            <div class="panel-footer text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['pName'];?>
+ $<?php echo $_smarty_tpl->tpl_vars['goods']->value['unitPrice'];?>
+</div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                        </div>
-                    </div>
-                </div><br>
+                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                </div>
+            </div>
+            
+            <div class="align_center">
+                <ul class="pagination">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
             </div>
         </div>
     </div>

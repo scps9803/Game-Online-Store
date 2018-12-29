@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-28 01:29:59
+/* Smarty version 3.1.33, created on 2018-12-29 17:29:02
   from 'C:\wamp64\www\web\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c250c174e77e8_29275054',
+  'unifunc' => 'content_5c273e5e0e9639_36410515',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f96c7be0617f2a8395da2ec59cd53feb2f863f79' => 
     array (
       0 => 'C:\\wamp64\\www\\web\\templates\\index.html',
-      1 => 1545931797,
+      1 => 1546075738,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5c250c174e77e8_29275054 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c273e5e0e9639_36410515 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +67,14 @@ width: 500px;
 #searchbar{
 margin: 20px auto;
 }
-
+        
+.text_center{
+text-align: center
+}
+.text_center > span {
+	color: firebrick;
+    font-weight: bolder;
+}
 </style>
 </head>
 
@@ -106,7 +113,7 @@ margin: 20px auto;
 
     <div class="jumbotron">
         <div class="container text-center">
-            <p>Welcome to</p>
+            <h2>Welcome to</h2>
             <h1>遊戲首富</h1>
         </div>
     </div>
@@ -120,6 +127,7 @@ margin: 20px auto;
         </span>
     </div>
 
+<!--
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -147,9 +155,11 @@ margin: 20px auto;
             </div>
         </div>
     </div><br>
+-->
 
     <div class="container">
         <div class="row">
+            <h2 class="text_center"><span class="panel panel-danger">&nbsp&nbsp熱門商品 HOT!!&nbsp&nbsp</span></h2><br>
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_goods']->value, 'goods');
 if ($_from !== null) {
@@ -171,14 +181,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goods']->value) {
             </div> -->
             <div class="col-sm-4">
                 <div class="panel panel-success">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                    <div class="panel-heading text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['category'];?>
+</div>
                     <!-- <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div> -->
                     <div class="panel-body">
                         <a href="item_detail.php?pNo=<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
 "><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
 " class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
                     </div>
-                    <div class="panel-footer"><?php echo $_smarty_tpl->tpl_vars['goods']->value['pName'];?>
+                    <div class="panel-footer text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['pName'];?>
  $<?php echo $_smarty_tpl->tpl_vars['goods']->value['unitPrice'];?>
 </div>
                 </div>

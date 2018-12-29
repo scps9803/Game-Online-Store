@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-28 09:14:05
+/* Smarty version 3.1.33, created on 2018-12-29 17:22:25
   from 'C:\wamp64\www\web\templates\account.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c2578ddd61f21_35765258',
+  'unifunc' => 'content_5c273cd1d61c52_74569901',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b5a6f87b1ee7f81f0cac3d4dee688eb1bd59d71e' => 
     array (
       0 => 'C:\\wamp64\\www\\web\\templates\\account.html',
-      1 => 1545959620,
+      1 => 1546075344,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c2578ddd61f21_35765258 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c273cd1d61c52_74569901 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +69,13 @@ function content_5c2578ddd61f21_35765258 (Smarty_Internal_Template $_smarty_tpl)
         }
         
         #return_trend{
-            text-align: center
+            text-align: center;
+            vertical-align: middle;
+        }
+        @media screen and (max-width: 600px) {
+            .return_plot {
+                width: 100%;
+            }
         }
         
         .invest_info > h4{
@@ -110,7 +116,7 @@ function content_5c2578ddd61f21_35765258 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav">
-                <h4>John's Blog</h4>
+                <h4>我的帳戶</h4>
 
                 <ul class="nav nav-pills nav-stacked">
                     <li id="accountBtn"><a href="#">個人資料</a></li>
@@ -271,10 +277,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>";
     var invest =
         "<h2>投資現況</h2>" +
         "<h3>資產配置</h3>" +
-        "<img src='uploads/piechart.jpg'>" +
+        "<img src='uploads/piechart.jpg' width=100<?php echo '%>';?>" +
         "<h3>資產總計</h3>" +
         
-        "<table class='table table - striped'>"+
+        "<table class='table table - striped' border='1'>"+
             "<tr>"+
                 "<td class='invest_info'>"+
                 "<h4>現金資產: $1,781,729</h4>" +
@@ -283,7 +289,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>";
                 "<h4>累積獲利: $31,107</h4>" +
                 "<h4>總報酬率: 1.56%</h4>" +
                 "</td>"+
-                "<td id='return_trend'><h4>報酬率走勢圖</h4><img src='uploads/stock.jpg' width='400'></td>"+
+        "<td id='return_trend'><h4>報酬率走勢圖</h4><img src='uploads/stock.jpg' width='400' class='return_plot'></td>"+
             "</tr>"+
         "</table><hr>"+
         
