@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-29 16:47:30
+  from 'C:\wamp64\www\Game-Online-Store\templates\item_detail.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c27a522b595b7_47679039',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7376e7ec9ce46871878c893cab55504b975b132c' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\item_detail.html',
+      1 => 1546102047,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c27a522b595b7_47679039 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,8 +31,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <style>
         /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 
@@ -68,7 +95,8 @@
                     <li><a href="#">聯繫我們</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {$welcome}
+                    <?php echo $_smarty_tpl->tpl_vars['welcome']->value;?>
+
                     <li><a href="cart.php?add_to_cart=no"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
                 </ul>
             </div>
@@ -103,17 +131,21 @@
             <div class="col-sm-6">
                 <h4><small>RECENT POSTS</small></h4>
                 <hr>
-                <h2>{$product_info.pName}</h2>
+                <h2><?php echo $_smarty_tpl->tpl_vars['product_info']->value['pName'];?>
+</h2>
                 <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
                 <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
                 <!-- <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
-                <p><h3>{$product_info.description}</h3></p>
+                <p><h3><?php echo $_smarty_tpl->tpl_vars['product_info']->value['description'];?>
+</h3></p>
                 <br><br>
             </div>
 
             <div class="col-sm-3 center">
-                <br><br><br><img src="uploads/{$product_info.pNo}" alt="">
-                <h1 id="price">${$product_info.unitPrice}</h1>
+                <br><br><br><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['product_info']->value['pNo'];?>
+" alt="">
+                <h1 id="price">$<?php echo $_smarty_tpl->tpl_vars['product_info']->value['unitPrice'];?>
+</h1>
                 <span>數量</span>
                 <button class="btn btn-default" id="plus">＋</button>
                 <span id="count">&nbsp&nbsp;1&nbsp&nbsp;</span>
@@ -174,7 +206,8 @@
 
 </body>
 
-<script>
+<?php echo '<script'; ?>
+>
     $(document).ready(function() {
         $count = 1;
         $("#plus").click(function(){
@@ -190,10 +223,14 @@
             $total = $price*$count;
             window.alert("商品已成功加入購物車!");
             // window.alert($total);
-            $(location).attr('href', 'cart.php?add_to_cart=yes&pNo={$product_info.pNo}&amount='+$count+'&total='+$total);
+            $(location).attr('href', 'cart.php?add_to_cart=yes&pNo=<?php echo $_smarty_tpl->tpl_vars['product_info']->value['pNo'];?>
+&amount='+$count+'&total='+$total);
         });
     });
 
-</script>
+<?php echo '</script'; ?>
+>
 
 </html>
+<?php }
+}

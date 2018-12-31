@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-30 05:40:37
+  from 'C:\wamp64\www\Game-Online-Store\templates\cart.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c285a554afc99_31184917',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '78a0938950df43e5555485be2025d0ba349478ac' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\cart.html',
+      1 => 1546148434,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:footer.html' => 1,
+  ),
+),false)) {
+function content_5c285a554afc99_31184917 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="">
 
 <head>
@@ -7,8 +31,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="js/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <title></title>
 </head>
 
@@ -32,7 +60,8 @@
                     <li><a href="#">聯繫我們</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {$welcome}
+                    <?php echo $_smarty_tpl->tpl_vars['welcome']->value;?>
+
                     <li><a href="cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
                 </ul>
             </div>
@@ -51,33 +80,51 @@
                 </tr>
             </thead>
             <tbody>
-                {foreach from=$cart_info item=product}
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['cart_info']->value, 'product');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['product']->value) {
+?>
                 <tr>
-                    <td><img src="uploads/{$product.pNo}" class="item_image"><br><h3>{$product.pName}</h3></td>
-                    <td>{$product.unitPrice}</td>
-                    <td>{$product.amount}</td>
-                    <td>{$product.total}</td>
+                    <td><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value['pNo'];?>
+" class="item_image"><br><h3><?php echo $_smarty_tpl->tpl_vars['product']->value['pName'];?>
+</h3></td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['product']->value['unitPrice'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['product']->value['amount'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['product']->value['total'];?>
+</td>
                     <td><button class="btn btn-default" id="btn_delete">刪除</button></td>
                 </tr>
-                {/foreach}
+                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </tbody>
         </table>
         <button class="btn btn-default btn_chechout" id="btn_check">結帳</button>
     </div>
-    {include file="footer.html"}
+    <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </body>
 
-<script>
+<?php echo '<script'; ?>
+>
     $(document).ready(function() {
         $("#btn_check").click(function(){
             $(location).attr('href', 'check_out.php');
         });
         $("#btn_delete").click(function(){
             if(confirm("是否將此商品從購物車中移除?")){
-                $(location).attr('href', 'function.php?action=delete_cart_item&pNo={$product.pNo}');
+                $(location).attr('href', 'function.php?action=delete_cart_item&pNo=<?php echo $_smarty_tpl->tpl_vars['product']->value['pNo'];?>
+');
             }
         });
     });
 
-</script>
+<?php echo '</script'; ?>
+>
 </html>
+<?php }
+}

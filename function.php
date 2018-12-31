@@ -1,5 +1,11 @@
 <?php
+$action = $_GET["action"];
 
+switch ($action) {
+    case "delete_cart_item":
+        delete_cart_item($_GET["pNo"]);
+        break;
+}
 
 function list_goods(){
     $connect = include("/connect.php");
@@ -26,5 +32,12 @@ function get_product_pic($pId=""){
     else{
         return "";
     }
+}
+
+function delete_cart_item($pNo){
+    $connect = include("/connect.php");
+    $sql = "DELETE FROM cart WHERE pNo='{$pNo}'";
+    $conn->query($sql);
+    header("Location: cart.php?add_to_cart=no");
 }
 ?>

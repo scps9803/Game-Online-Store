@@ -19,6 +19,7 @@ switch($op){
     case "logout":
         unset($_SESSION["user_id"]);
         unset($_SESSION["user_name"]);
+        unset($_SESSION["email"]);
         header("Location: index.php");
         break;
 }
@@ -29,13 +30,17 @@ $res = $conn->query($sql);
 
 $i=0;
 $trans_record = NULL;
-while($record=$res->fetch_assoc()){    
+while($record=$res->fetch_assoc()){
     $trans_record[$i] = $record;
     $i++;
 }
 
+$account_info = $res->fetch_assoc();
+$account_info["email"] = $_SESSION["email"];
+$account_info["user_name"] = $_SESSION["user_name"];
 
 $smarty->assign("welcome",$welcome);
 $smarty->assign("trans_record",$trans_record);
+$smarty->assign("account_info",$account_info);
 $smarty->display("account.html");
 ?>

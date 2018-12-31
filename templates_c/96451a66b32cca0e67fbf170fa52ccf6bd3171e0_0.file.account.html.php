@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-30 14:15:31
+  from 'C:\wamp64\www\Game-Online-Store\templates\account.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c28d30348df21_82920584',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '96451a66b32cca0e67fbf170fa52ccf6bd3171e0' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\account.html',
+      1 => 1546179316,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c28d30348df21_82920584 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,8 +31,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <style>
         /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 
@@ -78,7 +105,8 @@
                     <li><a href="#">聯繫我們</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {$welcome}
+                    <?php echo $_smarty_tpl->tpl_vars['welcome']->value;?>
+
                     <li><a href="cart.php?add_to_cart=no"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
                 </ul>
             </div>
@@ -112,11 +140,13 @@
                 <form action="/action_page.php">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="輸入 Email" name="email" value="{$account_info.email}">
+                        <input type="email" class="form-control" id="email" placeholder="輸入 Email" name="email" value="<?php echo $_smarty_tpl->tpl_vars['account_info']->value['email'];?>
+">
                     </div>
                     <div class="form-group">
                         <label for="name">用戶名稱:</label>
-                        <input type="text" class="form-control" id="name" placeholder="輸入用戶名稱" name="name" value="{$account_info.user_name}">
+                        <input type="text" class="form-control" id="name" placeholder="輸入用戶名稱" name="name" value="<?php echo $_smarty_tpl->tpl_vars['account_info']->value['user_name'];?>
+">
                     </div>
                     <div class="form-group">
                         <label for="pwd">密碼:</label>
@@ -142,17 +172,20 @@
 
 </body>
 
-<script>
+<?php echo '<script'; ?>
+>
     var account_info =
         "<h2>編輯個人資料</h2>"+
         "<form action='/action_page.php'>"+
             "<div class='form-group'>"+
                 "<label for='email'>Email:</label>"+
-                "<input type='email' class='form-control' id='email' placeholder='輸入 Email' name='email' value='{$account_info.email}'>"+
+                "<input type='email' class='form-control' id='email' placeholder='輸入 Email' name='email' value='<?php echo $_smarty_tpl->tpl_vars['account_info']->value['email'];?>
+'>"+
             "</div>"+
             "<div class='form-group'>"+
                 "<label for='name'>用戶名稱:</label>"+
-                "<input type='text' class='form-control' id='name' placeholder='輸入用戶名稱' name='name' value='{$account_info.user_name}'>"+
+                "<input type='text' class='form-control' id='name' placeholder='輸入用戶名稱' name='name' value='<?php echo $_smarty_tpl->tpl_vars['account_info']->value['user_name'];?>
+'>"+
             "</div>"+
             "<div class='form-group'>"+
                 "<label for='pwd'>密碼:</label>"+
@@ -184,16 +217,29 @@
         "</thead>" +
 
         "<tbody>" +
-        "{foreach from=$trans_record key=k item=record}"+
+        "<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['trans_record']->value, 'record', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['record']->value) {
+?>"+
         "<tr>" +
-        "<td>{$record.detailNo}</td>" +
-        "<td>{$record.pName}</td>" +
-        "<td>{$record.unitPrice}</td>" +
-        "<td>{$record.amount}</td>" +
-        "<td>{$record.method}</td>" +
-        "<td>{$record.transTime}</td>" +
+        "<td><?php echo $_smarty_tpl->tpl_vars['record']->value['detailNo'];?>
+</td>" +
+        "<td><?php echo $_smarty_tpl->tpl_vars['record']->value['pName'];?>
+</td>" +
+        "<td><?php echo $_smarty_tpl->tpl_vars['record']->value['unitPrice'];?>
+</td>" +
+        "<td><?php echo $_smarty_tpl->tpl_vars['record']->value['amount'];?>
+</td>" +
+        "<td><?php echo $_smarty_tpl->tpl_vars['record']->value['method'];?>
+</td>" +
+        "<td><?php echo $_smarty_tpl->tpl_vars['record']->value['transTime'];?>
+</td>" +
         "</tr>" +
-        "{/foreach}";
+        "<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>";
 
         "<tr>" +
         "<td>訂單編號</td>" +
@@ -267,7 +313,7 @@
     var invest =
         "<h2>投資現況</h2>" +
         "<h3>資產配置</h3>" +
-        "<img src='uploads/piechart.jpg' width=100%>" +
+        "<img src='uploads/piechart.jpg' width=100<?php echo '%>';?>" +
         "<h3>資產總計</h3>" +
 
         "<table class='table table - striped' border='1'>"+
@@ -357,6 +403,9 @@
         });
     });
 
-</script>
+<?php echo '</script'; ?>
+>
 
 </html>
+<?php }
+}

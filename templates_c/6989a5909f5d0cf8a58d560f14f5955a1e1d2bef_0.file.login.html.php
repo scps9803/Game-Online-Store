@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-30 05:14:08
+  from 'C:\wamp64\www\Game-Online-Store\templates\login.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c28542019cbd5_43511774',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6989a5909f5d0cf8a58d560f14f5955a1e1d2bef' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\login.html',
+      1 => 1546146604,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c28542019cbd5_43511774 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="">
 
 <head>
@@ -7,8 +30,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"><?php echo '</script'; ?>
+>
+	<?php echo '<script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 	<title>登入</title>
 
 	<style>
@@ -70,7 +97,8 @@
 		</form>
 	</div>
 </body>
-<script>
+<?php echo '<script'; ?>
+>
 	var sign_up =
 		"<h2>會員註冊</h2>" +
 		"<form action='sign_up.php' method='post'>" +
@@ -102,6 +130,9 @@
 			});
 		});
 
-</script>
+<?php echo '</script'; ?>
+>
 
 </html>
+<?php }
+}

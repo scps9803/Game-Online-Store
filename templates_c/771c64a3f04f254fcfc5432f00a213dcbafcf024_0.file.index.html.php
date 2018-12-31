@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-29 15:37:43
+  from 'C:\wamp64\www\Game-Online-Store\templates\index.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c2794c77dd961_36708893',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '771c64a3f04f254fcfc5432f00a213dcbafcf024' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\index.html',
+      1 => 1546097860,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:footer.html' => 1,
+  ),
+),false)) {
+function content_5c2794c77dd961_36708893 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,8 +33,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="js/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <style>
         /* Remove the navbar's default rounded borders and increase the bottom margin */
 
@@ -75,7 +103,8 @@ text-align: center
                     <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>登入/註冊</a></li>
                     <li><a href="account.html"><span class="glyphicon glyphicon-user"></span>會員中心</a></li>
 -->
-                    {$welcome}
+                    <?php echo $_smarty_tpl->tpl_vars['welcome']->value;?>
+
                     <li><a href="cart.php?add_to_cart=no"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
                 </ul>
             </div>
@@ -131,7 +160,11 @@ text-align: center
     <div class="container">
         <div class="row">
             <h2 class="text_center"><span class="panel panel-danger">&nbsp&nbsp熱門商品 HOT!!&nbsp&nbsp</span></h2><br>
-            {foreach from=$all_goods item=goods}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_goods']->value, 'goods');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['goods']->value) {
+?>
             <!-- <div class="col-sm-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">BLACK FRIDAY DEAL</div>
@@ -148,15 +181,23 @@ text-align: center
             </div> -->
             <div class="col-sm-4">
                 <div class="panel panel-success">
-                    <div class="panel-heading text_center">{$goods.category}</div>
+                    <div class="panel-heading text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['category'];?>
+</div>
                     <!-- <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div> -->
                     <div class="panel-body">
-                        <a href="item_detail.php?pNo={$goods.pNo}"><img src="uploads/{$goods.pNo}" class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
+                        <a href="item_detail.php?pNo=<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
+"><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
+" class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
                     </div>
-                    <div class="panel-footer text_center">{$goods.pName} ${$goods.unitPrice}</div>
+                    <div class="panel-footer text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['pName'];?>
+ $<?php echo $_smarty_tpl->tpl_vars['goods']->value['unitPrice'];?>
+</div>
                 </div>
             </div>
-            {/foreach}
+            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
     </div>
 
@@ -177,16 +218,21 @@ text-align: center
             <button type="button" class="btn btn-danger">Sign Up</button>
         </form>
     </footer> -->
-    {include file="footer.html"}
+    <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </body>
 
-<script>
+<?php echo '<script'; ?>
+>
     $(document).ready(function() {
         $("h1").click(function() {
             $(this).hide();
         });
     });
 
-</script>
+<?php echo '</script'; ?>
+>
 
 </html>
+<?php }
+}

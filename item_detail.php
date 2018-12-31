@@ -22,6 +22,7 @@ switch($op){
     case "logout":
         unset($_SESSION["user_id"]);
         unset($_SESSION["user_name"]);
+        unset($_SESSION["email"]);
         header("Location: index.php");
         break;
 }

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $connect = include('/connect.php');
+
 $email = $_POST['email'];
 $password = $_POST['pwd'];
 
@@ -15,6 +16,7 @@ while($row = $res->fetch_assoc()){
         echo "successful";
         $_SESSION["user_id"] = $row["user_id"];
         $_SESSION["user_name"] = $row["user_name"];
+        $_SESSION["email"] = $row["email"];
         header("Location: index.php");
         return;
         }

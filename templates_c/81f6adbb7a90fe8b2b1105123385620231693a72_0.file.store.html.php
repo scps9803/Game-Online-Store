@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-29 16:10:37
+  from 'C:\wamp64\www\Game-Online-Store\templates\store.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c279c7d27a5c7_42063749',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '81f6adbb7a90fe8b2b1105123385620231693a72' => 
+    array (
+      0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\store.html',
+      1 => 1546099833,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c279c7d27a5c7_42063749 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,8 +31,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <style>
         /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 
@@ -68,7 +95,8 @@
                     <li><a href="#">聯繫我們</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {$welcome}
+                    <?php echo $_smarty_tpl->tpl_vars['welcome']->value;?>
+
                     <li><a href="cart.php?add_to_cart=no"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
                 </ul>
             </div>
@@ -102,18 +130,30 @@
 
             <div class="col-sm-9">
                 <div class="row">
-                    {foreach from=$all_goods item=goods}
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_goods']->value, 'goods');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['goods']->value) {
+?>
                     <div class="col-sm-4">
                         <div class="panel panel-success">
-                            <div class="panel-heading text_center">{$goods.category}</div>
+                            <div class="panel-heading text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['category'];?>
+</div>
                             <!-- <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div> -->
                             <div class="panel-body">
-                                <a href="item_detail.php?pNo={$goods.pNo}"><img src="uploads/{$goods.pNo}" class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
+                                <a href="item_detail.php?pNo=<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
+"><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
+" class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
                             </div>
-                            <div class="panel-footer text_center">{$goods.pName} ${$goods.unitPrice}</div>
+                            <div class="panel-footer text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['pName'];?>
+ $<?php echo $_smarty_tpl->tpl_vars['goods']->value['unitPrice'];?>
+</div>
                         </div>
                     </div>
-                    {/foreach}
+                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
             </div>
 
@@ -135,7 +175,8 @@
 
 </body>
 
-<script>
+<?php echo '<script'; ?>
+>
     $(document).ready(function() {
         $parm = location.search;
         $category = $parm.split("=");
@@ -173,6 +214,9 @@
         }
     });
 
-</script>
+<?php echo '</script'; ?>
+>
 
 </html>
+<?php }
+}
