@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-30 14:15:31
+/* Smarty version 3.1.33, created on 2019-01-02 11:22:16
   from 'C:\wamp64\www\Game-Online-Store\templates\account.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c28d30348df21_82920584',
+  'unifunc' => 'content_5c2c2e68662285_02298082',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '96451a66b32cca0e67fbf170fa52ccf6bd3171e0' => 
     array (
       0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\account.html',
-      1 => 1546179316,
+      1 => 1546399334,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c28d30348df21_82920584 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c2c2e68662285_02298082 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -166,8 +166,8 @@ function content_5c28d30348df21_82920584 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 
-    <footer class="container-fluid">
-        <p>Footer Text</p>
+    <footer class="container-fluid align_center">
+        <p>Game-Online-Store Copyright by Wei-Cheng Shih 2018</p>
     </footer>
 
 </body>
@@ -239,27 +239,19 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
         "<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>";
-
-        "<tr>" +
-        "<td>訂單編號</td>" +
-        "<td>商品名稱</td>" +
-        "<td>價格</td>" +
-        "<td>數量</td>" +
-        "<td>付款方式</td>" +
-        "<td>交易時間</td>" +
-        "</tr>" +
-
-        "<tr>" +
-        "<td>訂單編號</td>" +
-        "<td>商品名稱</td>" +
-        "<td>價格</td>" +
-        "<td>數量</td>" +
-        "<td>付款方式</td>" +
-        "<td>交易時間</td>" +
-        "</tr>" +
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>" +
         "</tbody>" +
-        "</table>"
+        "</table>" +
+
+        "<div class='align_center'>" +
+        "<ul class='pagination'>" +
+        "<li><a href='#'>1</a></li>" +
+        "<li><a href='#'>2</a></li>" +
+        "<li><a href='#'>3</a></li>" +
+        "<li><a href='#'>4</a></li>" +
+        "<li><a href='#'>5</a></li>" +
+        "</ul>" +
+        "</div>";
 
     var wallet =
         "<h2>我的錢包</h2>" +

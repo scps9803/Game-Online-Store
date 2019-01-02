@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-29 16:10:37
+/* Smarty version 3.1.33, created on 2019-01-02 11:24:14
   from 'C:\wamp64\www\Game-Online-Store\templates\store.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c279c7d27a5c7_42063749',
+  'unifunc' => 'content_5c2c2ede588368_64345365',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '81f6adbb7a90fe8b2b1105123385620231693a72' => 
     array (
       0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\store.html',
-      1 => 1546099833,
+      1 => 1546399452,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c279c7d27a5c7_42063749 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c2c2ede588368_64345365 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -119,9 +119,9 @@ function content_5c279c7d27a5c7_42063749 (Smarty_Internal_Template $_smarty_tpl)
                 </ul><br>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="搜尋商品..">
+                    <input type="text" class="form-control" placeholder="搜尋商品.." id="search_text">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                        <button class="btn btn-default" type="button" id="search_btn">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
@@ -139,7 +139,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goods']->value) {
                         <div class="panel panel-success">
                             <div class="panel-heading text_center"><?php echo $_smarty_tpl->tpl_vars['goods']->value['category'];?>
 </div>
-                            <!-- <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div> -->
                             <div class="panel-body">
                                 <a href="item_detail.php?pNo=<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
 "><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['goods']->value['pNo'];?>
@@ -169,8 +168,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
     </div>
 
-    <footer class="container-fluid">
-        <p>Footer Text</p>
+    <footer class="container-fluid text_center">
+        <p>Game-Online-Store Copyright by Wei-Cheng Shih 2018</p>
     </footer>
 
 </body>
@@ -180,6 +179,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     $(document).ready(function() {
         $parm = location.search;
         $category = $parm.split("=");
+
+        var has_search_result = "<?php echo $_smarty_tpl->tpl_vars['all_goods']->value[0]['pNo'];?>
+";
+        if(has_search_result.length==0){
+            $(".align_center").remove();
+            $(".col-sm-9").append("<h1 class='text_center'>查無搜尋結果!!!!</h1><br>");
+        }
 
         switch ($category[1]) {
             case "0":
@@ -210,8 +216,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 $("#category_pants").css("background-color","skyblue");
                 $("#category_pants").css("border-radius","4px");
                 break;
-
+            case "7":
+                // $(".col-sm-9 >").remove();
+                // $(".col-sm-9 >").append("<h2>查無搜尋結果!!!!</h2>");
+                break;
         }
+        $("#search_btn").click(function(){
+            $search_text = $("#search_text").val();
+            // $(location).attr('href', 'function.php?action=search_item&search_text=$search_text');
+            $(location).attr('href', 'store.php?category=7&search_text='+$search_text);
+        });
     });
 
 <?php echo '</script'; ?>

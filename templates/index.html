@@ -90,9 +90,9 @@ text-align: center
     </div>
 
     <div class="input-group" id="searchbar">
-        <input type="text" class="form-control" placeholder="搜尋商品..">
+        <input type="text" class="form-control" placeholder="搜尋商品.." id="search_text">
         <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
+            <button class="btn btn-default" type="button" id="search_btn">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
         </span>
@@ -170,20 +170,20 @@ text-align: center
         </ul>
     </div>
 
-    <!-- <footer class="container-fluid text-center">
-        <p>Online Store Copyright</p>
+    <footer class="container-fluid text-center">
+        <p>Game-Online-Store Copyright by Wei-Cheng Shih 2018</p>
         <form class="form-inline">Get deals:
             <input type="email" class="form-control" size="50" placeholder="Email Address">
             <button type="button" class="btn btn-danger">Sign Up</button>
         </form>
-    </footer> -->
-    {include file="footer.html"}
+    </footer>
 </body>
 
 <script>
     $(document).ready(function() {
-        $("h1").click(function() {
-            $(this).hide();
+        $("#search_btn").click(function(){
+            $search_text = $("#search_text").val();
+            $(location).attr('href', 'store.php?category=7&search_text='+$search_text);
         });
     });
 

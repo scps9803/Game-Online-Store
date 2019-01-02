@@ -1,27 +1,26 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-29 15:37:43
+/* Smarty version 3.1.33, created on 2019-01-02 01:46:33
   from 'C:\wamp64\www\Game-Online-Store\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c2794c77dd961_36708893',
+  'unifunc' => 'content_5c2ba77939e5e4_10809307',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '771c64a3f04f254fcfc5432f00a213dcbafcf024' => 
     array (
       0 => 'C:\\wamp64\\www\\Game-Online-Store\\templates\\index.html',
-      1 => 1546097860,
+      1 => 1546364791,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5c2794c77dd961_36708893 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c2ba77939e5e4_10809307 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -119,9 +118,9 @@ text-align: center
     </div>
 
     <div class="input-group" id="searchbar">
-        <input type="text" class="form-control" placeholder="搜尋商品..">
+        <input type="text" class="form-control" placeholder="搜尋商品.." id="search_text">
         <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
+            <button class="btn btn-default" type="button" id="search_btn">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
         </span>
@@ -211,22 +210,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </ul>
     </div>
 
-    <!-- <footer class="container-fluid text-center">
-        <p>Online Store Copyright</p>
+    <footer class="container-fluid text-center">
+        <p>Game-Online-Store Copyright by Wei-Cheng Shih 2018</p>
         <form class="form-inline">Get deals:
             <input type="email" class="form-control" size="50" placeholder="Email Address">
             <button type="button" class="btn btn-danger">Sign Up</button>
         </form>
-    </footer> -->
-    <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+    </footer>
 </body>
 
 <?php echo '<script'; ?>
 >
     $(document).ready(function() {
-        $("h1").click(function() {
-            $(this).hide();
+        $("#search_btn").click(function(){
+            $search_text = $("#search_text").val();
+            $(location).attr('href', 'store.php?category=7&search_text='+$search_text);
         });
     });
 

@@ -104,6 +104,17 @@ switch($category){
             $i++;
         }
         break;
+    case "7": //search_item
+        $sql = "SELECT * FROM product WHERE pName LIKE '%{$_GET["search_text"]}%' OR description LIKE '%{$_GET["search_text"]}%'";
+        $res = $conn->query($sql);
+
+        $i=0;
+        $all_goods = NULL;
+        while($goods=$res->fetch_assoc()){
+            $all_goods[$i] = $goods;
+            $i++;
+        }
+        break;
 }
 
 $smarty->assign("welcome",$welcome);

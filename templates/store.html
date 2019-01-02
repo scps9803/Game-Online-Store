@@ -91,9 +91,9 @@
                 </ul><br>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="搜尋商品..">
+                    <input type="text" class="form-control" placeholder="搜尋商品.." id="search_text">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                        <button class="btn btn-default" type="button" id="search_btn">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
@@ -106,7 +106,6 @@
                     <div class="col-sm-4">
                         <div class="panel panel-success">
                             <div class="panel-heading text_center">{$goods.category}</div>
-                            <!-- <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div> -->
                             <div class="panel-body">
                                 <a href="item_detail.php?pNo={$goods.pNo}"><img src="uploads/{$goods.pNo}" class="img-responsive" style="margin:auto;height:200px;" alt="Image"></a>
                             </div>
@@ -129,8 +128,8 @@
         </div>
     </div>
 
-    <footer class="container-fluid">
-        <p>Footer Text</p>
+    <footer class="container-fluid text_center">
+        <p>Game-Online-Store Copyright by Wei-Cheng Shih 2018</p>
     </footer>
 
 </body>
@@ -139,6 +138,12 @@
     $(document).ready(function() {
         $parm = location.search;
         $category = $parm.split("=");
+
+        var has_search_result = "{$all_goods.0.pNo}";
+        if(has_search_result.length==0){
+            $(".align_center").remove();
+            $(".col-sm-9").append("<h1 class='text_center'>查無搜尋結果!!!!</h1><br>");
+        }
 
         switch ($category[1]) {
             case "0":
@@ -169,8 +174,16 @@
                 $("#category_pants").css("background-color","skyblue");
                 $("#category_pants").css("border-radius","4px");
                 break;
-
+            case "7":
+                // $(".col-sm-9 >").remove();
+                // $(".col-sm-9 >").append("<h2>查無搜尋結果!!!!</h2>");
+                break;
         }
+        $("#search_btn").click(function(){
+            $search_text = $("#search_text").val();
+            // $(location).attr('href', 'function.php?action=search_item&search_text=$search_text');
+            $(location).attr('href', 'store.php?category=7&search_text='+$search_text);
+        });
     });
 
 </script>

@@ -136,8 +136,8 @@
         </div>
     </div>
 
-    <footer class="container-fluid">
-        <p>Footer Text</p>
+    <footer class="container-fluid align_center">
+        <p>Game-Online-Store Copyright by Wei-Cheng Shih 2018</p>
     </footer>
 
 </body>
@@ -193,27 +193,19 @@
         "<td>{$record.method}</td>" +
         "<td>{$record.transTime}</td>" +
         "</tr>" +
-        "{/foreach}";
-
-        "<tr>" +
-        "<td>訂單編號</td>" +
-        "<td>商品名稱</td>" +
-        "<td>價格</td>" +
-        "<td>數量</td>" +
-        "<td>付款方式</td>" +
-        "<td>交易時間</td>" +
-        "</tr>" +
-
-        "<tr>" +
-        "<td>訂單編號</td>" +
-        "<td>商品名稱</td>" +
-        "<td>價格</td>" +
-        "<td>數量</td>" +
-        "<td>付款方式</td>" +
-        "<td>交易時間</td>" +
-        "</tr>" +
+        "{/foreach}" +
         "</tbody>" +
-        "</table>"
+        "</table>" +
+
+        "<div class='align_center'>" +
+        "<ul class='pagination'>" +
+        "<li><a href='#'>1</a></li>" +
+        "<li><a href='#'>2</a></li>" +
+        "<li><a href='#'>3</a></li>" +
+        "<li><a href='#'>4</a></li>" +
+        "<li><a href='#'>5</a></li>" +
+        "</ul>" +
+        "</div>";
 
     var wallet =
         "<h2>我的錢包</h2>" +
